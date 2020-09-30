@@ -18,10 +18,11 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity(),Listener {
+class MainActivity : AppCompatActivity(), Listener {
     private lateinit var recyclerView: RecyclerView
     private lateinit var newsAdapter: NewsAdapter
     private lateinit var articlesList: ArrayList<Articles>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -29,33 +30,37 @@ class MainActivity : AppCompatActivity(),Listener {
         fetchData()
     }
 
-
-
     private fun setUpUi() {
-        recyclerView=findViewById(R.id.recyclerView)
-        newsAdapter= NewsAdapter(this,ArrayList<Articles>(),this)
+        recyclerView = findViewById(R.id.recyclerView)
+        newsAdapter = NewsAdapter(this, ArrayList<Articles>(), this)
         recyclerView.apply {
             setHasFixedSize(true)
-            layoutManager= LinearLayoutManager(this@MainActivity)
-            adapter=newsAdapter
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            adapter = newsAdapter
         }
     }
 
     private fun fetchData() {
-        val call:Call<News> = RetrofitBuilder.newApi.getNews("bitcoin","156c7ce8e18b47b98a0a459cb348684f","2020-07-17","publishedAt")
-        call.enqueue(object :Callback<News> {
+        val call: Call<News> = RetrofitBuilder.newApi.getNews(
+            "google",
+            "156c7ce8e18b47b98a0a459cb348684f",
+            "2020-09-17",
+            "publishedAt"
+        )
+        call.enqueue(object : Callback<News> {
 
             override fun onResponse(call: Call<News>, response: Response<News>) {
-               if(response.isSuccessful)
-               {
-                   val listArticles=response.body()?.articles
-                   if(listArticles!=null && listArticles.isNotEmpty()){
-                       newsAdapter.setData(listArticles as ArrayList<Articles>)
-                       progressBar.visibility=View.GONE
-                       recyclerView.visibility=View.VISIBLE
-                   }
-                   articlesList= response.body()?.articles as ArrayList<Articles>
-               }
+                if (response.isSuccessful) {
+                    val listArticles = response.body()?.articles
+                    if (listArticles != null && listArticles.isNotEmpty()) {
+                        newsAdapter.setData(listArticles as ArrayList<Articles>)
+                        progressBar.visibility = View.GONE
+                        recyclerView.visibility = View.VISIBLE
+                    }
+                    articlesList = response.body()?.articles as ArrayList<Articles>
+                    Log.d("main", response.body().toString())
+
+                }
             }
 
             override fun onFailure(call: Call<News>, t: Throwable) {
@@ -66,8 +71,8 @@ class MainActivity : AppCompatActivity(),Listener {
     }
 
     override fun onItemClickListener(position: Int) {
-       val intent=Intent(this, WebActivity::class.java)
-        intent.putExtra("url",articlesList[position].url)
+        val intent = Intent(this, WebActivity::class.java)
+        intent.putExtra("url", articlesList[position].url)
         startActivity(intent)
     }
 }
