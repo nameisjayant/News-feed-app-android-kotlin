@@ -7,19 +7,18 @@
     android:orientation="vertical"
     tools:context=".Ui.MainActivity">
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        tools:listitem="@layout/each_row"
-        android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:listitem="@layout/each_row" />
 
-<ProgressBar
-    android:layout_gravity="center"
-    android:layout_marginTop="300dp"
-    android:id="@+id/progressBar"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="300dp" />
 
 </LinearLayout>
