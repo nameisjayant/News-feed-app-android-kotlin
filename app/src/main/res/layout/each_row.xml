@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    app:cardElevation="8dp"
     app:cardUseCompatPadding="true"
     app:cardMaxElevation="8dp"
-    app:cardPreventCornerOverlap="true"
+    app:cardElevation="8dp"
     app:cardCornerRadius="8dp"
+    app:cardBackgroundColor="@color/cardbackground"
+    app:cardPreventCornerOverlap="true"
     android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:padding="10dp"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="10dp">
 
         <ImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:contentDescription="@string/title"
             android:src="@drawable/ic_launcher_background"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -28,10 +29,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="title"
+            android:text="@string/title"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:textStyle="bold"
+            android:textColor="@color/textcolor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.449"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,8 +44,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="title"
-            android:textColor="#000"
+            android:text="@string/description"
+            android:textColor="@color/textcolor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
