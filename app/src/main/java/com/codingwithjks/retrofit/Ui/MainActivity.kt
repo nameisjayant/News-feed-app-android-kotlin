@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.codingwithjks.newsfeedapp.Model.Articles
@@ -22,14 +23,16 @@ class MainActivity : AppCompatActivity(),Listener {
     private lateinit var recyclerView: RecyclerView
     private lateinit var newsAdapter: NewsAdapter
     private lateinit var articlesList: ArrayList<Articles>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val toolbar = findViewById<Toolbar>(R.id.Toolbar)
+        setSupportActionBar(toolbar)
         setUpUi()
         fetchData()
     }
-
-
 
     private fun setUpUi() {
         recyclerView=findViewById(R.id.recyclerView)
@@ -42,7 +45,11 @@ class MainActivity : AppCompatActivity(),Listener {
     }
 
     private fun fetchData() {
-        val call:Call<News> = RetrofitBuilder.newApi.getNews("bitcoin","156c7ce8e18b47b98a0a459cb348684f","2020-07-17","publishedAt")
+        val call:Call<News> = RetrofitBuilder.newApi
+                .getNews("bitcoin"
+                ,"c0ad41152144433b927d9a9208e2031b"
+                ,"2020-09-16","publishedAt")
+
         call.enqueue(object :Callback<News> {
 
             override fun onResponse(call: Call<News>, response: Response<News>) {
@@ -66,7 +73,7 @@ class MainActivity : AppCompatActivity(),Listener {
     }
 
     override fun onItemClickListener(position: Int) {
-       val intent=Intent(this, WebActivity::class.java)
+        val intent=Intent(this, WebActivity::class.java)
         intent.putExtra("url",articlesList[position].url)
         startActivity(intent)
     }
