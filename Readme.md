@@ -4,9 +4,9 @@ This is a simple news feed application based on Retrofit and RecyclerView, The 
 
 <h1 align="center">Project Structure</h1>
 <p align="center">
-<img src="app/src/main/res/drawable/Screenshot 2020-08-18 at 12.47.08 PM.png"/>
+<img src="app/src/main/res/drawable/first.png"/>
 </p>
 
 <p align="center">
-<img src="app/src/main/res/drawable/Screenshot 2020-08-18 at 12.47.54 PM.png"/>
+<img src="app/src/main/res/drawable/second.png"/>
 </p>
