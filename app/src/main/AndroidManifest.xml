@@ -12,9 +12,13 @@
         android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+
         android:theme="@style/AppTheme"
         tools:targetApi="m">
         <activity android:name=".Ui.WebActivity"/>
+        android:name=".Container.BaseApp"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Ui.WebActivity"></activity>
         <activity android:name=".Ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
