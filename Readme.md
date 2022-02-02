@@ -12,3 +12,5 @@ This is a simple news feed application based on Retrofit and RecyclerView, The 
 <p align="center">
 <img src="app/src/main/res/drawable/second.png"/>
 </p>
+
+..
