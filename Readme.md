@@ -14,5 +14,5 @@ This is a simple news feed application based on Retrofit and RecyclerView, The 
 </p>
 
 ....
-..
+..;;
 ..
