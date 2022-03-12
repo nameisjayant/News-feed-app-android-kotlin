@@ -13,6 +13,6 @@ This is a simple news feed application based on Retrofit and RecyclerView, The 
 <img src="app/src/main/res/drawable/second.png"/>
 </p>
 
-....
+......
 ..;;
 ..
